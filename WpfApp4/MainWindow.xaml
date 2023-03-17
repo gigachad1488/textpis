@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="552" Width="1253">
+    <Grid x:Name="grod">
+        <TabControl Margin="0,423,0,0" TabStripPlacement="Bottom">
+            <TabItem Header="Файл">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="SaveFileButton" Content="Сохранить" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="66" Width="66"/>
+                    <Button x:Name="OpenFileButton" Content="Открыть" HorizontalAlignment="Left" Margin="129,0,0,0" VerticalAlignment="Center" Height="66" Width="66"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Текст">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="FontChangeComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="FontSizeComboBox" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="30"/>
+                    <Button x:Name="CurvButton" Content="К" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="29"/>
+                    <Button x:Name="StrButton" Content="Ж" HorizontalAlignment="Left" Margin="56,43,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Button x:Name="FocButton" Content="П" HorizontalAlignment="Left" Margin="102,43,0,0" VerticalAlignment="Top" Width="28"/>
+                    
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
