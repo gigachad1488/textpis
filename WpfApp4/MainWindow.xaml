@@ -15,16 +15,23 @@
                     <Button x:Name="OpenFileButton" Content="Открыть" HorizontalAlignment="Left" Margin="129,0,0,0" VerticalAlignment="Center" Height="66" Width="66"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Текст">
+            <TabItem Header="Текст" Height="20" VerticalAlignment="Bottom">
                 <Grid Background="#FFE5E5E5">
-                    <ComboBox x:Name="FontChangeComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="FontSizeComboBox" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="30"/>
-                    <Button x:Name="CurvButton" Content="К" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="29"/>
-                    <Button x:Name="StrButton" Content="Ж" HorizontalAlignment="Left" Margin="56,43,0,0" VerticalAlignment="Top" Width="28"/>
-                    <Button x:Name="FocButton" Content="П" HorizontalAlignment="Left" Margin="102,43,0,0" VerticalAlignment="Top" Width="28"/>
-                    
+                    <ComboBox x:Name="FontChangeComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FontChangeComboBox_SelectionChanged"/>
+                    <ComboBox x:Name="FontSizeComboBox" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="30" SelectionChanged="FontSizeComboBox_SelectionChanged"/>
+                    <Button x:Name="CurvButton" Content="К" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="29" Click="CurvButton_Click"/>
+                    <Button x:Name="StrButton" Content="Ж" HorizontalAlignment="Left" Margin="56,43,0,0" VerticalAlignment="Top" Width="28" Click="StrButton_Click"/>
+                    <Button x:Name="FocButton" Content="П" HorizontalAlignment="Left" Margin="102,43,0,0" VerticalAlignment="Top" Width="28" Click="FocButton_Click"/>
+                    <wpfx:ColorPicker x:Name="ColorPicker" Margin="219,10,948,0" SelectedColorChanged="ColorPicker_SelectedColorChanged"> </wpfx:ColorPicker>
                 </Grid>
             </TabItem>
         </TabControl>
+        <RichTextBox x:Name="RichTextBox" Margin="0,0,0,118" BorderThickness="10">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </Window>
