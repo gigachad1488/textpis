@@ -48,7 +48,7 @@ namespace WpfApp4
             Random r1 = new Random();
             Thread.Sleep(1);
             Random r2 = new Random();
-            Thread.Sleep(1);
+            Thread.Sleep(2);
             Random r3 = new Random();
             RichTextBox.BorderBrush = new SolidColorBrush(Color.FromRgb(Convert.ToByte(r1.Next(0, 255)), Convert.ToByte(r2.Next(0, 255)), Convert.ToByte(r3.Next(0, 255))));
             //Thread.Sleep(5);
