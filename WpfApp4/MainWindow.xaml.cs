@@ -22,12 +22,16 @@ namespace WpfApp4
     /// </summary>
     public partial class MainWindow : Window
     {
+        Color standartcolor;
         public MainWindow()
         {
             InitializeComponent();
-            IntComboBox.SelectedIndex = 0;
-            FontSizeComboBox.SelectedIndex = 4;
+            standartcolor = (SaveFileButton.Background as SolidColorBrush).Color;
             FontChangeComboBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(s => s.Source);
+            TextBlock t = new TextBlock();
+            t.Text = "П";
+            t.TextDecorations = TextDecorations.Underline;
+            
             for (int i = 0; i < 72;)
             {
                 i += 2;
@@ -38,6 +42,10 @@ namespace WpfApp4
                 IntComboBox.Items.Add(i);
                 i += 0.5;
             }
+            Color f = (SaveFileButton.Background as SolidColorBrush).Color;
+            IntComboBox.SelectedIndex = 0;
+            FontSizeComboBox.SelectedIndex = 4;
+            RichTextBox.FontSize = Convert.ToDouble(FontSizeComboBox.SelectedItem);
             var timer = new System.Windows.Threading.DispatcherTimer();
             RichTextBox.Document.Blocks.Clear();
             timer.Interval = new TimeSpan(500000);
@@ -127,6 +135,18 @@ namespace WpfApp4
         private void IntComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RichTextBox.Selection.ApplyPropertyValue(TextBlock.LineHeightProperty, IntComboBox.SelectedItem);
+        }
+
+        private void ButtonColorChangeEnter(object sender, MouseEventArgs e)
+        {
+            Button b = sender as Button;
+            b.Background = Brushes.Aquamarine;
+        }
+
+        private void ButtonColorChangeLeave(object sender, MouseEventArgs e)
+        {
+            Button b = sender as Button;
+            b.Background = new SolidColorBrush(standartcolor); 
         }
     }
 }

@@ -7,30 +7,70 @@
         xmlns:local="clr-namespace:WpfApp4"
         mc:Ignorable="d"
         Title="MainWindow" Height="552" Width="1253">
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="ButtonEllipse" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid x:Name="grod">
+        <ToolBar Height="25" VerticalAlignment="Top">
+            <Button Click="SaveFileButton_Click">
+                <Image Source="save.png"/>
+            </Button>
+            <Separator/>
+            <Button Click="OpenFileButton_Click">
+                <Image Source="open.png"/>
+            </Button>
+            <Separator/>
+            <Button Click="CurvButton_Click">
+                <Image Source="kurs.png"/>
+            </Button>
+            <Separator/>
+            <Button Click="StrButton_Click" Height="60" Width="688">
+                <MediaElement Source="D:\pap\m.avi"></MediaElement>
+            </Button>
+            <Separator/>
+            <Button Click="FocButton_Click">
+                <Image Source="podch.png"/>
+            </Button>
+        </ToolBar>
         <TabControl Margin="0,423,0,0" TabStripPlacement="Bottom">
             <TabItem Header="Файл">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="SaveFileButton" Content="Сохранить" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="66" Width="66" Click="SaveFileButton_Click"/>
-                    <Button x:Name="OpenFileButton" Content="Открыть" HorizontalAlignment="Left" Margin="129,0,0,0" VerticalAlignment="Center" Height="66" Width="66" Click="OpenFileButton_Click"/>
+                    <Button x:Name="SaveFileButton" Style="{StaticResource RoundButtonStyle}" Content="Сохранить" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="80" Width="55" Click="SaveFileButton_Click" MouseEnter="ButtonColorChangeEnter" MouseLeave="ButtonColorChangeLeave">
+                    </Button>
+                    <Button x:Name="OpenFileButton" Style="{StaticResource RoundButtonStyle}" Content="Открыть" HorizontalAlignment="Left" Margin="129,0,0,0" VerticalAlignment="Center" Height="80" Width="55" Click="OpenFileButton_Click" MouseEnter="ButtonColorChangeEnter" MouseLeave="ButtonColorChangeLeave"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Текст" Height="20" VerticalAlignment="Top" Margin="-2,2,-2,-2">
                 <Grid Background="#FFE5E5E5">
                     <ComboBox x:Name="FontChangeComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FontChangeComboBox_SelectionChanged"/>
-                    <ComboBox x:Name="FontSizeComboBox" HorizontalAlignment="Left" Margin="179,30,0,0" VerticalAlignment="Top" Width="30" SelectionChanged="FontSizeComboBox_SelectionChanged"/>
-                    <Button x:Name="CurvButton" Content="К" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="29" Click="CurvButton_Click" FontStyle="Italic"/>
-                    <Button x:Name="StrButton" Content="Ж" FontWeight="Bold" HorizontalAlignment="Left" Margin="56,43,0,0" VerticalAlignment="Top" Width="28" Click="StrButton_Click"/>
-                    <Button x:Name="FocButton" Content="П"  HorizontalAlignment="Left" Margin="102,43,0,0" VerticalAlignment="Top" Width="28" Click="FocButton_Click"/>
-                    <wpfx:ColorPicker x:Name="ColorPicker" Margin="248,10,919,0" SelectedColorChanged="ColorPicker_SelectedColorChanged"> </wpfx:ColorPicker>
-                    <ComboBox x:Name="IntComboBox" HorizontalAlignment="Left" Margin="391,30,0,0" VerticalAlignment="Top" Width="46" SelectionChanged="IntComboBox_SelectionChanged"/>
+                    <ComboBox x:Name="FontSizeComboBox" HorizontalAlignment="Left" Margin="172,35,0,0" VerticalAlignment="Top" Width="46" SelectionChanged="FontSizeComboBox_SelectionChanged"/>
+                    <Button x:Name="CurvButton" Style="{StaticResource RoundButtonStyle}" Content="К" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="29" Click="CurvButton_Click" FontStyle="Italic"/>
+                    <Button x:Name="StrButton" Style="{StaticResource RoundButtonStyle}" Content="Ж" FontWeight="Bold" HorizontalAlignment="Left" Margin="56,43,0,0" VerticalAlignment="Top" Width="28" Click="StrButton_Click"/>
+                    <Button x:Name="FocButton" Style="{StaticResource RoundButtonStyle}"  HorizontalAlignment="Left" Margin="102,43,0,0" VerticalAlignment="Top" Width="28" Click="FocButton_Click">
+                        <Button.Content>
+                            <TextBlock TextDecorations="Underline">П</TextBlock>
+                        </Button.Content>
+                    </Button>
+                    <wpfx:ColorPicker x:Name="ColorPicker" Margin="248,10,919,0" SelectedColorChanged="ColorPicker_SelectedColorChanged"></wpfx:ColorPicker>
+                    <ComboBox x:Name="IntComboBox" HorizontalAlignment="Left" Margin="391,35,0,0" VerticalAlignment="Top" Width="46" SelectionChanged="IntComboBox_SelectionChanged"/>
                     <Label Content="размер шрифта" HorizontalAlignment="Left" Margin="147,4,0,0" VerticalAlignment="Top"/>
                     <Label Content="межстрочный интервал" HorizontalAlignment="Left" Margin="343,4,0,0" VerticalAlignment="Top"/>
 
                 </Grid>
             </TabItem>
         </TabControl>
-        <RichTextBox x:Name="RichTextBox" Margin="0,0,0,118" BorderThickness="10">
+        <RichTextBox x:Name="RichTextBox" Margin="0,25,0,118" BorderThickness="10">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
