@@ -25,6 +25,8 @@ namespace WpfApp4
         public MainWindow()
         {
             InitializeComponent();
+            IntComboBox.SelectedIndex = 0;
+            FontSizeComboBox.SelectedIndex = 4;
             FontChangeComboBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(s => s.Source);
             for (int i = 0; i < 72;)
             {
@@ -124,7 +126,7 @@ namespace WpfApp4
 
         private void IntComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            RichTextBox.Selection.ApplyPropertyValue(TextBlock.LineHeightProperty, IntComboBox.SelectedItem);
         }
     }
 }
